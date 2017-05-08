@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/systemModel.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/mainMenu.xhtml" />
+	</ui:define>
+	
+	<ui:define name="content">
+
+		<p:panel id="logoPanel">
+			<h:graphicImage value="/resources/images/hmheader.png" alt="logo" />
+		</p:panel>
+
+		<h:panelGrid columns="2" id="bodygame" styleClass="container">
+				<p:panel id="wordPanel" header="Hanman Word Grid">
+					<ui:include src="/includes/guessLetter.xhtml" />
+				</p:panel>			
+				<h:panelGrid columns="2" id="superKeyboard" />
+				<ui:include src="/includes/keyboard.xhtml" />				
+
+				<ui:include src="/includes/userInfo.xhtml" />
+				<p:panel id="images">
+					<h:graphicImage value="/resources/images/hangman_0.png"
+						styleClass="hangImage" />
+				</p:panel>
+		</h:panelGrid>
+	</ui:define>
+
+	<ui:define name="footer">
+		<p:panel id="hgfooter">
+			<ui:include src="/includes/footer.xhtml" />
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+

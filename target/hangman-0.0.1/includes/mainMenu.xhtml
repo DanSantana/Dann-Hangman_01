@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:form >
+	<!-- MENU -->
+		<p:menubar>
+			<p:submenu label="File">
+				<p:menuitem value="New Game" onclick="PF('dgnewgame').show();" action="#{MBhangman.prepareGame}" />
+				<p:menuitem value="Sair" />
+			</p:submenu>
+
+			<p:submenu label="SignUp">
+				<p:menuitem value="Supplier" />
+				<p:menuitem value="Product" />
+			</p:submenu>
+			
+			<p:submenu label="Help">
+				<p:menuitem value="About" />
+			</p:submenu>
+		</p:menubar>
+
+	<!-- new game dialog box -->
+
+		<p:dialog widgetVar="dgnewgame" id="newPlayerDialogBox" closable="false" draggable="false" resizable="false" modal="true" appendTo="@(body)" width="265px"
+			height="80px" header="Welcome to Hangman Game!!"
+			closeOnEscape="true"
+			>
+			<h:panelGrid id="infopanel" columns="2" width="250"
+				styleClass="center-table">
+				<p:outputLabel value="Name: " />
+				<p:inputText value="#{MBhangman.player}"/>
+			</h:panelGrid>
+
+			<f:facet name="footer">
+			<h:panelGrid columns="2" id="pnButton" styleClass="gdbt">
+				<p:commandButton value="  Play  "  actionListener="#{MBhangman.playGame}" />
+				<p:commandButton value="Cancel"    action="#{MBhangman.prepareGame}"  onclick="PF('dgnewgame').hide();" />	
+			</h:panelGrid>
+			</f:facet>
+
+		</p:dialog>
+	</h:form>
+</ui:composition>
